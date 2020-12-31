@@ -1,10 +1,10 @@
 # Url shortener API
 
-This is a simple project to use [Coconut][https://coconut.readthedocs.io/].
+This is a simple project to use [Coconut](https://coconut.readthedocs.io/).
 
 ## Requirements
 
-- [Poetry][https://github.com/python-poetry/poetry]
+- [Poetry](https://github.com/python-poetry/poetry)
 
 ## Set up
 
