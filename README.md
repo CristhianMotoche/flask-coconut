@@ -15,10 +15,25 @@ poetry install
 ```
 
 
-## Run
+## Compile
 
 ```
 poetry shell
 coconut run.coco --verbose --mypy
+```
+
+## Run
+
+Once the code is compiled, you can:
+
+```
 python run.py
 ```
+
+Or, you can run the code directly:
+
+
+```
+coconut run.coco -r
+```
+
