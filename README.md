@@ -43,3 +43,16 @@ Or, you can run the code directly:
 coconut run.coco -r
 ```
 
+## Test
+
+You need to compile the tests first:
+
+```
+coconut tests
+```
+
+Then, use `pytest`:
+
+```
+pytest tests
+```
