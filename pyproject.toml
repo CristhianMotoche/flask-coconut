@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "coconut-flask"
+name = "shortener"
 version = "0.1.0"
 description = ""
 authors = ["CristhianMotoche <cristhian.motoche@gmail.com>"]

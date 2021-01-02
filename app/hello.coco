@@ -1,2 +1,0 @@
-123 |> len
-"hello, world!" |> print

@@ -1,4 +1,5 @@
-__pycache__
+shortener.egg-info/
+__pycache__/
 poetry.lock
 **/*.py
 run.py

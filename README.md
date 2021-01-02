@@ -25,7 +25,7 @@ coconut run.coco --verbose --mypy
 Watch it if you want:
 
 ```
-coconut -w app
+coconut -w shortener
 ```
 
 ## Run
