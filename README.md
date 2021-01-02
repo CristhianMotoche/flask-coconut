@@ -22,6 +22,12 @@ poetry shell
 coconut run.coco --verbose --mypy
 ```
 
+Watch it if you want:
+
+```
+coconut -w app
+```
+
 ## Run
 
 Once the code is compiled, you can:
