@@ -1,0 +1,8 @@
+import string
+
+_MAX_CHARS = 6
+_chars = string.ascii_letters
+
+
+def short(word: str) -> str:
+  return _chars[:_MAX_CHARS]

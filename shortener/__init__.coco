@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request, render_template
 
 __version__ = '0.1.0'
 
@@ -6,8 +6,21 @@ __version__ = '0.1.0'
 def create_app() -> Flask:
     app = Flask(__name__)
 
-    @app.route('/')
-    def hello_world():
-      return 'Hello, World! :P'
+    @app.route("/")
+    def root() -> str:
+      return "Welcome!"
+
+      return render_template("short/form.html")
+
+    @app.route("/short/", methods=["POST", "GET"])
+    def short() -> str:
+      if request.method == "POST":
+        return "TODO"
+
+      return render_template("short/form.html")
+
+    @app.route("/short/<string:word>", methods=["POST", "GET"])
+    def short_word(word: str) -> str:
+      return word
 
     return app

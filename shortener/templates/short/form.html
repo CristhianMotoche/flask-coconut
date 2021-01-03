@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport">
+    <title>Short some link</title>
+  </head>
+  <body>
+    <form method="POST" action="{{ url_for('short') }}">
+      <label for="word"></label>
+      <input id="word"
+             name="word"
+             placeholder="Type a word here"
+             value=""
+             type="text">
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>
