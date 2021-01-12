@@ -2,7 +2,7 @@ import string
 import random
 from typing import List
 
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify
 from flask.views import MethodView
 
 
@@ -11,11 +11,13 @@ short = Blueprint("short", __name__)
 class ShortAPI(MethodView):
   def post(self) -> None:
     content = request.get_json()
-    return shorter(content["word"])
+    return jsonify <| {
+     "key": shorter <| content["word"]
+    }
 
 short.add_url_rule("/short", view_func=ShortAPI.as_view("short"))
 
 def shorter(word: str) -> str:
   _MAX_CHARS = 6
   _chars = string.ascii_letters
-  return random.sample(_chars, _MAX_CHARS)
+  return "".join <| random.sample(_chars, _MAX_CHARS)
