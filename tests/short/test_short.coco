@@ -1,8 +1,8 @@
 from unittest import TestCase
 
-from shortener.short import short
+from shortener.short import shorter
 
 
 class ShortTest(TestCase):
   def test_produces_6_string_long(self) -> None:
-    assert len(short("foo")) == 6
+    assert len(shorter("foo")) == 6

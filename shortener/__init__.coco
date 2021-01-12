@@ -8,19 +8,9 @@ def create_app() -> Flask:
 
     @app.route("/")
     def root() -> str:
-      return "Welcome!"
-
       return render_template("short/form.html")
 
-    @app.route("/short/", methods=["POST", "GET"])
-    def short() -> str:
-      if request.method == "POST":
-        return "TODO"
-
-      return render_template("short/form.html")
-
-    @app.route("/short/<string:word>", methods=["POST", "GET"])
-    def short_word(word: str) -> str:
-      return word
+    from .short import short
+    app.register_blueprint(short)
 
     return app
