@@ -6,9 +6,11 @@ __version__ = '0.1.0'
 def create_app() -> Flask:
     app = Flask(__name__)
 
+    app.store = dict()
+
     @app.route("/")
     def root() -> str:
-      return render_template("short/form.html")
+      return render_template("base.html")
 
     from .short import short
     app.register_blueprint(short)

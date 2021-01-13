@@ -2,20 +2,28 @@ import string
 import random
 from typing import List
 
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, current_app, request, jsonify
 from flask.views import MethodView
 
 
 short = Blueprint("short", __name__)
 
 class ShortAPI(MethodView):
-  def post(self) -> None:
+  def post(self) -> str:
     content = request.get_json()
-    return jsonify <| {
-     "key": shorter <| content["word"]
-    }
+    word = content["word"]
+    key = shorter <| word
+    current_app.store[key] = word
+    return jsonify <| { "key": key }
+
+  def get(self, key: Optional[str] = None) -> str:
+    if not key:
+      return jsonify <| "Not valid"
+    word = current_app.store.get(key)
+    return jsonify <| word ?? "Not found"
 
 short.add_url_rule("/short", view_func=ShortAPI.as_view("short"))
+short.add_url_rule("/short/<string:key>", view_func=ShortAPI.as_view("short_single"))
 
 def shorter(word: str) -> str:
   _MAX_CHARS = 6
