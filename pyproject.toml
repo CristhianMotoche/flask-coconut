@@ -10,6 +10,7 @@ coconut = {extras = ["watch"], version = "^1.4.3"}
 mypy = "^0.790"
 coconut-develop = {extras = ["mypy"], version = "^1.4.3"}
 Flask = "^1.1.2"
+flask-rest-api = "^0.17.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
