@@ -1,10 +1,16 @@
 from flask import Flask, request, render_template
+from flask_rest_api import Api, Blueprint, abort
 
 __version__ = '0.1.0'
 
 
+api = Api()
+
 def create_app() -> Flask:
     app = Flask(__name__)
+    app.config["OPENAPI_VERSION"] = "3.0.2"
+    app.config["OPENAPI_URL_PREFIX"] = "/"
+    api.init_app(app)
 
     app.store = dict()
 
@@ -13,6 +19,6 @@ def create_app() -> Flask:
       return render_template("base.html")
 
     from .short import short
-    app.register_blueprint(short)
+    api.register_blueprint(short)
 
     return app

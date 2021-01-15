@@ -2,12 +2,16 @@ import string
 import random
 from typing import List
 
-from flask import Blueprint, current_app, request, jsonify
+from flask import current_app, request, jsonify
+from flask_rest_api import Blueprint
 from flask.views import MethodView
 
 
-short = Blueprint("short", __name__)
+short = Blueprint(
+  "short", __name__, url_prefix="/short", description="Operations on links"
+)
 
+@short.route("/")
 class ShortAPI(MethodView):
   def post(self) -> str:
     content = request.get_json()
@@ -16,6 +20,9 @@ class ShortAPI(MethodView):
     current_app.store[key] = word
     return jsonify <| { "key": key }
 
+
+@short.route("/<string:key>")
+class ShortAPIById(MethodView):
   def get(self, key: Optional[str] = None) -> str:
     if not key:
       return jsonify <| "Not valid"
