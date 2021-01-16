@@ -3,7 +3,7 @@ import random
 from typing import List
 
 from flask import current_app, request, jsonify
-from flask_rest_api import Blueprint
+from flask_smorest import Blueprint
 from flask.views import MethodView
 
 
