@@ -22,7 +22,7 @@ def create_app() -> Flask:
     def root() -> str:
       return render_template("base.html")
 
-    from .short import short
+    from .short.api import short
     api.register_blueprint(short)
 
     return app
