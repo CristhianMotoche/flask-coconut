@@ -29,9 +29,9 @@ class ShortAPIById(MethodView):
   @short.response(ShortSchema)
   def get(self, key: Optional[str] = None) -> str:
     if not key:
-      return jsonify <| "Not valid"
+      abort(400, message="Not valid.")
     word = current_app.store.get(key)
-    return jsonify <| word ?? abort(404, message='Item not found.')
+    return jsonify <| word ?? abort(404, message="Item not found.")
 
 short.add_url_rule("/short", view_func=ShortAPI.as_view("short"))
 short.add_url_rule("/short/<string:key>", view_func=ShortAPI.as_view("short_single"))
