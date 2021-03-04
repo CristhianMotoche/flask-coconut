@@ -11,6 +11,7 @@ mypy = "^0.790"
 coconut-develop = {extras = ["mypy"], version = "^1.4.3"}
 Flask = "^1.1.2"
 flask-smorest = "^0.27.0"
+flask-cors = "^3.0.10"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
